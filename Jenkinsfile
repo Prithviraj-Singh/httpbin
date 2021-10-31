@@ -1,13 +1,21 @@
 pipeline {
     environment {
         hi = "hello"
+        image = ''
     }
     agent any
 
     stages {
         stage('Build') {
             steps {
-                echo "$hi"
+                script {
+                    image = docker.bulid 'test/test'
+                }
+            }
+        }
+        stage('debug') {
+            steps {
+                echo "$image"
             }
         }
     }
