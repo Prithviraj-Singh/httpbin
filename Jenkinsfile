@@ -38,14 +38,14 @@ pipeline {
                 } 
             }
         }
-        /*
+        
         stage('dep') {
             steps {
                 withKubeConfig([credentialsId: 'kube']) {
                     sh 'kubectl apply -f deployment.yml'
                 }
             }
-        }*/
+        }
         stage('Deploy') {
             
             steps {
