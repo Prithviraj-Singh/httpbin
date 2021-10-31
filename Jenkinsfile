@@ -29,7 +29,7 @@ pipeline {
     agent any 
 
     stages { 
-
+/*
         stage('Building our image') { 
 
             steps { 
@@ -69,7 +69,13 @@ pipeline {
 
             }
 
-        } 
+        }
+   */     
+        stage('test') {
+            steps {
+                sh 'kubectl get nodes'
+            }
+        }
 
     }
 
