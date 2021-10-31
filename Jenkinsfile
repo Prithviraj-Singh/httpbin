@@ -1,6 +1,5 @@
 pipeline {
     environment { 
-
         registry = "prithvirajsingh1604/demo" 
 
         registryCredential = 'dockerhub' 
