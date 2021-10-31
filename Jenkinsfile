@@ -39,6 +39,11 @@ pipeline {
                 } 
             }
         }
+        stage('dep') {
+            withKubeConfig([credentialsId: 'kube']) {
+                sh 'kubectl apply -f deployment.yml'
+            }
+        }
         stage('Deploy') {
             
             steps {
