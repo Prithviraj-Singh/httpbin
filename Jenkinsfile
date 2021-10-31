@@ -17,7 +17,7 @@ pipeline {
 
                 script { 
 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    dockerImage = docker.build registry
 
                 }
 
@@ -39,13 +39,13 @@ pipeline {
             }
         }
         
-        stage('dep') {
+        /*stage('dep') {
             steps {
                 withKubeConfig([credentialsId: 'kube']) {
                     sh 'kubectl apply -f deployment.yml'
                 }
             }
-        }
+        }*/
         stage('Deploy') {
             
             steps {
