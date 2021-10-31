@@ -9,8 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    image = docker.bulid imagename
+                echo 'docker build -t prithvirajsingh1604/demo:"$BUILD_NUMBER"'
                 }
             }
         }
