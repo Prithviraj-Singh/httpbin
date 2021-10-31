@@ -2,6 +2,7 @@ pipeline {
     environment {
         hi = "hello"
         image = ''
+        imagename = "test/test"
     }
     agent any
 
@@ -9,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    image = docker.bulid 'test/test'
+                    image = docker.bulid imagename
                 }
             }
         }
