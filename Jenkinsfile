@@ -1,10 +1,13 @@
 pipeline {
+    environment {
+        hi = "hello"
+    }
     agent any
 
     stages {
         stage('Build') {
             steps {
-                sh 'docker  ps'
+                sh 'cat Dockerfile'
             }
         }
     }
