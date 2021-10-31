@@ -10,7 +10,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'docker build -t prithvirajsingh1604/demo:"$BUILD_NUMBER"'
-                }
             }
         }
         stage('debug') {
