@@ -16,5 +16,7 @@ spec:
         app: web
     spec:
       containers:
-        - name: front-end
+        - name: httpbin
           image: prithvirajsingh1604/demo:latest
+          ports:
+            - containerPort: 80
