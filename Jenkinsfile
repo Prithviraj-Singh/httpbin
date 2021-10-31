@@ -1,4 +1,5 @@
-pipeline { 
+pipeline {
+    
     environment { 
 
         registry = "prithvirajsingh1604/demo" 
