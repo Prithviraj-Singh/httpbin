@@ -1,20 +1,3 @@
-/*pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                sh 'docker build -t prithvirajsingh1604/demo:"$BUILD_NUMBER"'
-            }
-        }
-        stage('debug') {
-            steps {
-                sh 
-            }
-        }
-    }
-}
-*/
 pipeline { 
 
     environment { 
@@ -30,7 +13,7 @@ pipeline {
 
     stages { 
         
-        stage('Building our image') { 
+        stage('Build') { 
 
             steps { 
 
@@ -44,7 +27,7 @@ pipeline {
 
         }
 
-        stage('Deploy our image') { 
+        stage('Pushing') { 
 
             steps { 
 
@@ -58,9 +41,15 @@ pipeline {
                 } 
 
             }
-
-        } 
-
+        }
+        stage('Deploy') {
+            
+            steps {
+                script {
+                    kubernetesDeploy configs: './deployment.yml', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                }
+            }
+        }
     }
 
 }
