@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                sh 'date'
+                sh 'docker ps'
+                }
             }
         }
     }
