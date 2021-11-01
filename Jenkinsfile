@@ -43,6 +43,13 @@ pipeline {
                 sh 'sudo kubectl apply -f deployment.yml'
             }
         }*/
+        stage('dep') {
+            steps {
+                withKubeConfig([credentialsId: 'kube']) {
+                    sh '/home/ec2-user/bin/kubectl apply -f deployment.yml'
+                }
+            }
+        }
         stage('Deploy') {
             
             steps {
