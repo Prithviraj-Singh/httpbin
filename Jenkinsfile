@@ -38,7 +38,6 @@ pipeline {
                 } 
             }
         }
-        
         stage('dep') {
             steps {
                 sh 'sudo kubectl apply -f deployment.yml'
