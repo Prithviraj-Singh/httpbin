@@ -38,16 +38,14 @@ pipeline {
                 } 
             }
         }
-        stage('dep') {
+        stage('Deploy') {
             steps {
                 sh 'sudo /home/ec2-user/bin/kubectl apply -f deployment.yml'
             }
         }
-        stage('Deploy') {
+        stage('Expose') {
             steps {
-                withKubeConfig([credentialsId: 'kube']) {
-                    sh 'sudo /home/ec2-user/bin/kubectl apply -f service.yml'
-                }
+                sh 'sudo /home/ec2-user/bin/kubectl apply -f service.yml'
             }
         }
     }
